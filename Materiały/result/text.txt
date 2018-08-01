@@ -1,0 +1,36 @@
+Place of issue
+
+Po Zagoniu
+Date of issue
+27-01-2018
+Date of sale
+27-01-2018
+Seller Purchaser
+Zagoniu It WSG
+VAT ID: 321321 VAT ID: 321
+P0 Zagoniu 78 Garbary 2
+32-456 Po Zagoniu 85-167 Bydgoszcz
+lnv0Ice 01/01/2018
+ORIGINAL
+# Description Unit Quantity Unit_ net Tota_l net VAT rate VAT Total gross
+prlce pnce amount pnce
+1 Comupter kg 10 1 000,00 10 000,00 23% 2 300,00 12 300,00
+2 Cisco Switch kg 300 400,00 120 000,00 23% 27 600,00 147 600,00
+Total 130 000,00 29 900,00 159 900,00
+Taxrate 130 000,00 23% 29 900,00 159 900,00
+Method of payment transfer Total due 159 900,00 USD
+
+Due date 14 dni
+
+Zgodniu
+
+Person authorized to issue
+
+Page1/1
+
+Amount in words one hundred fifty-nine thousand nine
+hundred 00/100 USD
+
+Person authorized to collect
+
+Fakturowopl
