@@ -21,7 +21,7 @@ namespace Projekt_VN
             Login_Form lf = new Login_Form();
             lf.ShowDialog();
             //jesli warunek jest spelniony to pojawia sie glowne okno --- default login_status = 1
-            if (lf.login_status == true)
+            if (lf.LoginStatus == true)
             {
                 Application.Run(new Main_Form());
             }

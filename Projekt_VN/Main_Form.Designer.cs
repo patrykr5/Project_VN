@@ -473,7 +473,7 @@
             this.MaximizeBox = false;
             this.Name = "Main_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "OCR VN - Wersja 1.5.2 Dev";
+            this.Text = "OCR VN - Wersja 1.6.0 Dev";
             this.Load += new System.EventHandler(this.Main_Form_Load);
             this.ms_FMenu.ResumeLayout(false);
             this.ms_FMenu.PerformLayout();

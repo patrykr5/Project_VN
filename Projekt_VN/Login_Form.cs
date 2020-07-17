@@ -1,58 +1,52 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Projekt_VN.Controllers;
+using Projekt_VN.Enums;
+using Projekt_VN.Mappers;
+using Projekt_VN.Models;
+using System;
 using System.Windows.Forms;
 
 namespace Projekt_VN
 {
     public partial class Login_Form : Form
     {
-        public bool login_status = false;
+        public bool LoginStatus { get; private set; }
+        private IAuthentication _authenticationController;
 
         public Login_Form()
         {
             InitializeComponent();
+            _authenticationController = new AuthenticationController();
+            LoginStatus = false;
         }
 
         private void btm_Cancel_Click(object sender, EventArgs e)
         {
-            login_status = false;
+            LoginStatus = false;
             Close();
         }
 
         private void btm_Login_Click(object sender, EventArgs e)
-        {          
-            //sprawdza czy oba textboxy są puste lub nie mają spacji
-            if (string.IsNullOrWhiteSpace(tb_Login.Text) && string.IsNullOrWhiteSpace(tb_Password.Text))
+        {
+            string login = tb_Login.Text;
+            string password = tb_Password.Text;
+
+            if (string.IsNullOrWhiteSpace(login)
+                || string.IsNullOrWhiteSpace(password))
             {
                 lb_ErrorLogin.Visible = true;
             }
             else
             {
-                int? UserID, ErrorID;
-                string Imie, Nazwisko, Login;
-                Imie = Nazwisko = Login = "";
-                UserID = ErrorID = -1;
-                dbProc.UserLogin(tb_Login.Text, tb_Password.Text, ref UserID, ref ErrorID);
-                if (ErrorID == 0)
+                UserLoginStatus userLoginStatus = _authenticationController.Login(UserAuthenticationMapper.Map(login, password));
+                if (userLoginStatus.ErrorId == OperationStatusEnum.Success)
                 {
-                    lb_ErrorLogin.Visible = false;
-                    User.ID = UserID.Value;
-                    dbProc.UserGet(User.ID, ref Imie, ref Nazwisko, ref Login);
-                    User.Login = Login;
-                    User.Imie = Imie;
-                    User.Nazwisko = Nazwisko;
-                    login_status = true;
-                    this.Close();
+                    _authenticationController.GetUser(userLoginStatus.UserId.Value);
+                    LoginStatus = true;
+                    Close();
                 }
                 else
                 {
-                    login_status = false;
+                    LoginStatus = false;
                     lb_ErrorLogin.Visible = true;
                 }
             }
